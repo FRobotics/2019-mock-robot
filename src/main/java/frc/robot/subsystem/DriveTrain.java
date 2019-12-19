@@ -39,8 +39,8 @@ public class DriveTrain {
             setRightMotorSpeed(0);
             break;
         case CONTROLLED:
-            double left_speed = c.getAxis(Axis.LEFT_Y);
-            double right_speed = c.getAxis(Axis.RIGHT_Y);
+            double left_speed = 5*c.getAxis(Axis.LEFT_Y);
+            double right_speed = 5*c.getAxis(Axis.RIGHT_Y);
 
             setLeftMotorSpeed(left_speed);
             setRightMotorSpeed(right_speed);
