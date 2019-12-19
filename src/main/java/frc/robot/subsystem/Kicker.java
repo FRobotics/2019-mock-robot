@@ -1,8 +1,6 @@
 package frc.robot.subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import frc.robot.input.Button;
 import frc.robot.input.Controller;
 import frc.robot.subsystem.motor.CANMotor;
@@ -14,22 +12,22 @@ public class Kicker {
     private State state;
     private Timer stateTimer;
 
-    private DoubleSolenoid puncher;   
+    private Solenoid4150 puncher;   
     private CANMotor motor;
     
-    public Kicker(int puncherForward, int puncherBackward, int motorId){
-        this.puncher = new DoubleSolenoid(puncherForward, puncherBackward);
+    public Kicker(int solenoidID, int motorId){
+        this.puncher = new Solenoid4150(solenoidID);
         this.motor = new CANMotor(new TalonSRX(motorId));
         this.state = State.STOPPED;
         this.stateTimer = new Timer();
     }
 
     public void punch() {
-        puncher.set(Value.kForward);
+        puncher.set(true);
     }
 
     private void retractPuncher() {
-        puncher.set(Value.kReverse);
+        puncher.set(false);
     }
 
     public void stopRoller() {

@@ -22,7 +22,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     this.controller = new Controller(0);
     this.driveTrain = new DriveTrain(13, 12, 11, 10);
-    this.kicker = new Kicker(0, 1, 15); // TODO: fill out these values
+    this.kicker = new Kicker(0, 15);
   }
 
   @Override
